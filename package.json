@@ -12,5 +12,9 @@
     "logger"
   ],
   "author": "Alan Ngo",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": 
+  {
+    "url": "https://github.com/alanngo/nodelog"
+  }
 }
