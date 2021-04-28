@@ -23,7 +23,7 @@ log.fatal('fatal')
 ## Output
 
 ### debug.log
-[<img src="./logfile.png">](https://github.com/alanngo/nodelog/blob/master/logfile.PNG)
+[<img src="./logfile.PNG">](https://github.com/alanngo/nodelog/blob/master/logfile.PNG)
 
 ### stdout
-[<img src="./stdout.png">](https://github.com/alanngo/nodelog/blob/master/stdout.PNG)
+[<img src="./stdout.PNG">](https://github.com/alanngo/nodelog/blob/master/stdout.PNG)
