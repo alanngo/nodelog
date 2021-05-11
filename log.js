@@ -28,7 +28,7 @@ const LOG = (arg, color, type) =>
     fs.appendFile('debug.log', PREFIX+' '+arg+'\n', (err)=>
     {
         if (err) throw err
-        console.log(color+' ' +PREFIX+WHITE+':'+color, arg, BG_BLACK+WHITE)
+        console.log(BG_BLACK+color+' ' +PREFIX+WHITE+':'+color, arg, BG_BLACK+WHITE)
     })
 }
 
