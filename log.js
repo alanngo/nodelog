@@ -1,35 +1,41 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var fs_1 = __importDefault(require("fs"));
+
+import fs from 'fs'
+
 // fatal 
-var BG_RED = '\x1b[41m';
-var BLACK = '\x1b[30m';
+const BG_RED = '\x1b[41m'
+const BLACK = '\x1b[30m'
+
 // error
-var RED = '\x1b[31m';
+const RED = '\x1b[31m'
+
 // warning
-var YELLOW = '\x1b[33m';
+const YELLOW = '\x1b[33m'
+
 // info
-var BLUE = '\x1b[34m';
+const BLUE = '\x1b[34m'
+
 // debug
-var GREEN = '\x1b[32m';
+const GREEN = '\x1b[32m'
+
 // other
-var WHITE = '\x1b[37m';
-var BG_BLACK = '\x1b[40m';
+const WHITE = '\x1b[37m'
+const BG_BLACK = '\x1b[40m'
+
 // DO NOT EXPORT
-var LOG = function (arg, color, type) {
-    var PREFIX = type + ' ' + new Date().toLocaleString();
-    fs_1.default.appendFile('debug.log', PREFIX + arg + '\n', function (err) {
-        if (err)
-            throw err;
-        console.log(BG_BLACK + color + PREFIX + WHITE + ':' + color, arg, BG_BLACK + WHITE);
-    });
-};
-var debug = function (arg) { return LOG(arg, GREEN, 'DEBUG'); };
-var info = function (arg) { return LOG(arg, BLUE, 'INFO'); };
-var warn = function (arg) { return LOG(arg, YELLOW, 'WARNING'); };
-var err = function (arg) { return LOG(arg, RED, 'ERROR'); };
-var fatal = function (arg) { return LOG(arg, BG_RED + BLACK, 'FATAL'); };
-exports.default = { debug: debug, info: info, warn: warn, err: err, fatal: fatal };
+const LOG = (arg, color, type) => {
+    const PREFIX = type + ' ' + new Date().toLocaleString()
+    fs.appendFile('debug.log', PREFIX + arg + '\n', (err) => {
+        if (err) throw err
+        console.log(BG_BLACK + color + PREFIX + WHITE + ':' + color, arg, BG_BLACK + WHITE)
+    })
+}
+
+const debug = (arg) => LOG(arg, GREEN, 'DEBUG')
+const info = (arg) => LOG(arg, BLUE, 'INFO')
+const warn = (arg) => LOG(arg, YELLOW, 'WARNING')
+const err = (arg) => LOG(arg, RED, 'ERROR')
+const fatal = (arg) => LOG(arg, BG_RED + BLACK, 'FATAL')
+
+
+export default { debug, info, warn, err, fatal }
+

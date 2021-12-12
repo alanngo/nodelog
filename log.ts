@@ -22,7 +22,7 @@ const WHITE = '\x1b[37m'
 const BG_BLACK='\x1b[40m'
 
 // DO NOT EXPORT
-const LOG = (arg: String, color: String, type: String) => 
+const LOG = (arg: any, color: String, type: String) => 
 {
     const PREFIX=type+' '+new Date().toLocaleString()
     fs.appendFile('debug.log', PREFIX+arg+'\n', (err)=>
@@ -32,11 +32,11 @@ const LOG = (arg: String, color: String, type: String) =>
     })
 }
 
-const debug = (arg: String) => LOG(arg, GREEN, 'DEBUG')
-const info = (arg: String) => LOG(arg, BLUE, 'INFO')
-const warn = (arg: String) => LOG(arg, YELLOW, 'WARNING')
-const err = (arg: String) => LOG(arg, RED, 'ERROR')
-const fatal = (arg: String) => LOG(arg, BG_RED+BLACK, 'FATAL')
+const debug = (arg: any) => LOG(arg, GREEN, 'DEBUG')
+const info = (arg: any) => LOG(arg, BLUE, 'INFO')
+const warn = (arg: any) => LOG(arg, YELLOW, 'WARNING')
+const err = (arg: any) => LOG(arg, RED, 'ERROR')
+const fatal = (arg: any) => LOG(arg, BG_RED+BLACK, 'FATAL')
 
 
 export default {debug, info, warn, err, fatal}

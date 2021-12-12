@@ -1,11 +1,11 @@
 {
   "name": "logit673",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "log.js",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json && npm install",
-    "postclean": "tsc",
     "test": "node test.js"
   },
   "keywords": [
