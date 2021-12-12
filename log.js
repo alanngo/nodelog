@@ -1,43 +1,35 @@
-
-import fs from 'fs'
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var fs_1 = __importDefault(require("fs"));
 // fatal 
-const BG_RED='\x1b[41m'
-const BLACK= '\x1b[30m'
-
+var BG_RED = '\x1b[41m';
+var BLACK = '\x1b[30m';
 // error
-const RED = '\x1b[31m'
-
+var RED = '\x1b[31m';
 // warning
-const YELLOW = '\x1b[33m'
-
+var YELLOW = '\x1b[33m';
 // info
-const BLUE = '\x1b[34m'
-
+var BLUE = '\x1b[34m';
 // debug
-const GREEN = '\x1b[32m'
-
+var GREEN = '\x1b[32m';
 // other
-const WHITE = '\x1b[37m'
-const BG_BLACK='\x1b[40m'
-
+var WHITE = '\x1b[37m';
+var BG_BLACK = '\x1b[40m';
 // DO NOT EXPORT
-const LOG = (arg, color, type) => 
-{
-    const PREFIX=type+' '+new Date().toLocaleString()
-    fs.appendFile('debug.log', PREFIX+' '+arg+'\n', (err)=>
-    {
-        if (err) throw err
-        console.log(BG_BLACK+color+' ' +PREFIX+WHITE+':'+color, arg, BG_BLACK+WHITE)
-    })
-}
-
-const debug = (arg) => LOG(arg, GREEN, 'DEBUG')
-const info = (arg) => LOG(arg, BLUE, 'INFO')
-const warn = (arg) => LOG(arg, YELLOW, 'WARNING')
-const err = (arg) => LOG(arg, RED, 'ERROR')
-const fatal = (arg) => LOG(arg, BG_RED+BLACK, 'FATAL')
-
-
-export default {debug, info, warn, err, fatal}
-
+var LOG = function (arg, color, type) {
+    var PREFIX = type + ' ' + new Date().toLocaleString();
+    fs_1.default.appendFile('debug.log', PREFIX + arg + '\n', function (err) {
+        if (err)
+            throw err;
+        console.log(BG_BLACK + color + PREFIX + WHITE + ':' + color, arg, BG_BLACK + WHITE);
+    });
+};
+var debug = function (arg) { return LOG(arg, GREEN, 'DEBUG'); };
+var info = function (arg) { return LOG(arg, BLUE, 'INFO'); };
+var warn = function (arg) { return LOG(arg, YELLOW, 'WARNING'); };
+var err = function (arg) { return LOG(arg, RED, 'ERROR'); };
+var fatal = function (arg) { return LOG(arg, BG_RED + BLACK, 'FATAL'); };
+exports.default = { debug: debug, info: info, warn: warn, err: err, fatal: fatal };
