@@ -30,12 +30,18 @@ const LOG = (arg: any, color: String, type: String) => {
     })
 }
 
-const debug = (arg: any) => LOG(arg, GREEN, 'DEBUG')
-const info = (arg: any) => LOG(arg, BLUE, 'INFO')
-const warn = (arg: any) => LOG(arg, YELLOW, 'WARNING')
-const err = (arg: any) => LOG(arg, RED, 'ERROR')
-const fatal = (arg: any) => LOG(arg, BG_RED + BLACK, 'FATAL')
+// const debug = (arg: any) => LOG(arg, GREEN, 'DEBUG')
+// const info = (arg: any) => LOG(arg, BLUE, 'INFO')
+// const warn = (arg: any) => LOG(arg, YELLOW, 'WARNING')
+// const err = (arg: any) => LOG(arg, RED, 'ERROR')
+// const fatal = (arg: any) => LOG(arg, BG_RED + BLACK, 'FATAL')
+const log = { 
+    debug: (arg: any) => LOG(arg, GREEN, 'DEBUG'), 
+    info: (arg: any) => LOG(arg, BLUE, 'INFO'), 
+    warn: (arg: any) => LOG(arg, YELLOW, 'WARNING'), 
+    err: (arg: any) => LOG(arg, RED, 'ERROR'), 
+    fatal: (arg: any) => LOG(arg, BG_RED + BLACK, 'FATAL')
+}
 
 
-export default { debug, info, warn, err, fatal }
-
+export default log

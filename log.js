@@ -1,9 +1,4 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
+import fs from 'fs';
 // fatal 
 const BG_RED = '\x1b[41m';
 const BLACK = '\x1b[30m';
@@ -21,15 +16,22 @@ const BG_BLACK = '\x1b[40m';
 // DO NOT EXPORT
 const LOG = (arg, color, type) => {
     const PREFIX = type + ' ' + new Date().toLocaleString();
-    fs_1.default.appendFile('debug.log', PREFIX + ": " + arg + '\n', (err) => {
+    fs.appendFile('debug.log', PREFIX + ": " + arg + '\n', (err) => {
         if (err)
             throw err;
         console.log(BG_BLACK + color + PREFIX + WHITE + ':' + color, arg, BG_BLACK + WHITE);
     });
 };
-const debug = (arg) => LOG(arg, GREEN, 'DEBUG');
-const info = (arg) => LOG(arg, BLUE, 'INFO');
-const warn = (arg) => LOG(arg, YELLOW, 'WARNING');
-const err = (arg) => LOG(arg, RED, 'ERROR');
-const fatal = (arg) => LOG(arg, BG_RED + BLACK, 'FATAL');
-exports.default = { debug, info, warn, err, fatal };
+// const debug = (arg: any) => LOG(arg, GREEN, 'DEBUG')
+// const info = (arg: any) => LOG(arg, BLUE, 'INFO')
+// const warn = (arg: any) => LOG(arg, YELLOW, 'WARNING')
+// const err = (arg: any) => LOG(arg, RED, 'ERROR')
+// const fatal = (arg: any) => LOG(arg, BG_RED + BLACK, 'FATAL')
+const log = {
+    debug: (arg) => LOG(arg, GREEN, 'DEBUG'),
+    info: (arg) => LOG(arg, BLUE, 'INFO'),
+    warn: (arg) => LOG(arg, YELLOW, 'WARNING'),
+    err: (arg) => LOG(arg, RED, 'ERROR'),
+    fatal: (arg) => LOG(arg, BG_RED + BLACK, 'FATAL')
+};
+export default log;

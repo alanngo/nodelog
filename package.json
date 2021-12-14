@@ -3,6 +3,7 @@
   "version": "1.4.0",
   "description": "",
   "main": "log.js",
+  "types": "index.d.ts",
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json && npm install",
     "test": "node test.js",
